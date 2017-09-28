@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">wallpapers</string>
+    <string name="about">关于</string>
+    <string name="mm_no_net">请检查网络设置</string>
+
+    <string name="download_url">http://fir.im/gankmm</string>
+    <string name="github_my">https://github.com/maning0303</string>
+    <string name="gankio">http://www.gank.io</string>
+    <string name="github">github</string>
+    <string name="github_01">https://github.com/yqritc/RecyclerView-FlexibleDivider</string>
+    <string name="github_02">https://github.com/google/gson</string>
+    <string name="github_03">https://github.com/square/okhttp</string>
+    <string name="github_04">https://github.com/square/retrofit</string>
+    <string name="github_05">https://github.com/bumptech/glide</string>
+    <string name="github_06">https://github.com/ZhaoKaiQiang/KLog</string>
+    <string name="github_07">https://github.com/saiwu-bigkoo/Android-SVProgressHUD</string>
+    <string name="github_08">https://github.com/JakeWharton/butterknife</string>
+    <string name="github_09">https://github.com/Aspsine/SwipeToLoadLayout</string>
+    <string name="github_10">https://github.com/ldoublem/ThumbUp</string>
+    <string name="github_11">https://github.com/afollestad/material-dialogs</string>
+    <string name="github_12">https://github.com/jhy/jsoup</string>
+    <string name="github_13">https://github.com/yanzhenjie/AndPermission</string>
+    <string name="github_14">https://github.com/ogaclejapan/SmartTabLayout</string>
+    <string name="github_15">https://github.com/maning0303/SwitcherView</string>
+    <string name="github_16">https://github.com/yavski/fab-speed-dial</string>
+    <string name="github_17">https://github.com/wasabeef/Blurry</string>
+    <string name="github_18">https://github.com/jgilfelt/chuck</string>
+    <string name="github_19">https://github.com/Kelin-Hong/ScrollablePanel</string>
+    <string name="github_20">https://github.com/Manabu-GT/ExpandableTextView</string>
+    <string name="github_21">https://github.com/maning0303/MNCalendar</string>
+    <string name="github_22">https://github.com/maning0303/CrashMonitor</string>
+    <string name="github_23">hhttps://github.com/chrisbanes/PhotoView</string>
+
+
+    <string name="gank_update_apk">当前版本是最新版</string>
+
+
+    <string name="current">刚刚</string>
+    <string name="hour_before">%d小时前</string>
+    <string name="minute_before">%d分钟前</string>
+    <string name="second_before">%d秒前</string>
+
+
+    <!--网络相关-->
+    <string name="gank_net_fail">网络出问题啦</string>
+    <string name="gank_get_data_fail">获取数据失败</string>
+    <!--页面标题-->
+    <string name="gank_page_title_feedback">意见反馈</string>
+    <string name="gank_page_title_girls">美女~</string>
+
+    <!--Dialog-->
+    <string name="gank_dialog_title_tishi">提示</string>
+    <string name="gank_dialog_msg_savehint">长按图片即可保存，试试吧！</string>
+    <string name="gank_dialog_confirm">确定</string>
+    <string name="gank_dialog_msg_save_image">是否要将图片保存到手机？</string>
+    <string name="gank_hint_save_pic_fail">图片保存失败</string>
+    <string name="gank_dialog_cancle">取消</string>
+    <string name="gank_hint_exit_app">再按一次退出程序</string>
+    <string name="gank_dialog_title_notify">通知</string>
+    <string name="gank_dialog_msg_feedback">您的反馈有回复了，是否去查看？</string>
+    <string name="gank_hint_copy_success">复制成功</string>
+
+    <string name="setting">设置</string>
+    <string name="cancel">取消</string>
+    <string name="time">时间</string>
+
+    <!--数据类型：福利 | Android | iOS | 休息视频 | 拓展资源 | 前端-->
+    <string-array name="gankHeadLineTypes">
+        <item>Android</item>
+        <item>iOS</item>
+        <item>休息视频</item>
+        <item>拓展资源</item>
+        <item>前端</item>
+    </string-array>
+
+    <!--性别：男女 -->
+    <string-array name="sexs">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+</resources>
