@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.example.i.imagecache.api.ACache;
@@ -51,24 +52,17 @@ public class MyApplication extends Application {
         initLog();
 
 
-
         //开启违例检测:StrictMode
 //        if (BuildConfig.LOG_DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
         }
-
     }
-
-
 
     private void initLog() {
 //        KLog.init(BuildConfig.LOG_DEBUG, "---GankMM---");
     }
-
-
-
 
     private void initBase() {
         application = this;
@@ -119,12 +113,16 @@ public class MyApplication extends Application {
         client.addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR);
         client.addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR);
         return client.build();
+
     }
 
+    /**
+     * 主要是拦截操作，包括控制缓存的最大生命值，控制缓存的过期时间
+     */
     private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
 
         @Override
-        public Response intercept(Interceptor.Chain chain) throws IOException {
+        public Response intercept(@NonNull Interceptor.Chain chain) throws IOException {
             //方案一：有网和没有网都是先读缓存
 //                Request request = chain.request();
 //                Log.i(TAG, "request=" + request);

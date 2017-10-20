@@ -116,7 +116,6 @@ public class RecyclePicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             View inflate = layoutInflater.inflate(R.layout.item_welfare_staggered, parent, false);
             return new MyViewHolder(inflate);
         }
-
     }
 
     @Override

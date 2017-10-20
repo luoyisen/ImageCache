@@ -24,5 +24,4 @@ public class BuildApi {
         }
         return retrofit.create(WallpaperService.class);
     }
-
 }

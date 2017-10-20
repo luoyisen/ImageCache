@@ -32,7 +32,7 @@ import butterknife.Unbinder;
 public class WallpaperFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener, IWelFareView {
 
     @BindView(R.id.swipe_target)
-    RecyclerView swipeTarget;
+    RecyclerView recyclerView;
     @BindView(R.id.swipeToLoadLayout)
     SwipeToLoadLayout swipeToLoadLayout;
 
@@ -41,14 +41,9 @@ public class WallpaperFragment extends BaseFragment implements OnRefreshListener
 
     private WelFarePresenterImpl welFarePresenter;
 
-    public static WallpaperFragment newInstance() {
-        return new WallpaperFragment();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -65,9 +60,12 @@ public class WallpaperFragment extends BaseFragment implements OnRefreshListener
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         welFarePresenter = new WelFarePresenterImpl(getActivity(), this);
 
+        /*
+         * if the looper is quit before the delivery time of the message occurs
+         * then the message will be dropped.
+         */
         swipeToLoadLayout.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -82,12 +80,12 @@ public class WallpaperFragment extends BaseFragment implements OnRefreshListener
 
         if (recyclePicAdapter == null) {
             recyclePicAdapter = new RecyclePicAdapter(context, welFareList);
-            swipeTarget.setAdapter(recyclePicAdapter);
+            recyclerView.setAdapter(recyclePicAdapter);
             //点击事件
             recyclePicAdapter.setOnItemClickLitener(new RecyclePicAdapter.OnItemClickLitener() {
                 @Override
                 public void onItemClick(View view, int position) {
-                    welFarePresenter.itemClick(view,position);
+                    welFarePresenter.itemClick(view, position);
                 }
             });
             //获取头条随机
@@ -95,15 +93,14 @@ public class WallpaperFragment extends BaseFragment implements OnRefreshListener
         } else {
             recyclePicAdapter.updateDatas(welFareList);
         }
-
     }
 
     private void initRefresh() {
         swipeToLoadLayout.setOnRefreshListener(this);
         swipeToLoadLayout.setOnLoadMoreListener(this);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        swipeTarget.setLayoutManager(staggeredGridLayoutManager);
-        swipeTarget.setItemAnimator(new DefaultItemAnimator());
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);// TODO: 2017/10/20 to re
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     @Override
@@ -125,7 +122,7 @@ public class WallpaperFragment extends BaseFragment implements OnRefreshListener
 
     @Override
     public void showToast(String msg) {
-        MySnackbar.makeSnackBarRed(swipeTarget, msg);
+        MySnackbar.makeSnackBarRed(recyclerView, msg);
     }
 
     @Override

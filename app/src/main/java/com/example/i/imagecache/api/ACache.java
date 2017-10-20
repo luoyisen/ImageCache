@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 
 public class ACache {
-    public static final int TIME_HOUR = 60 * 60;
+    private static final int TIME_HOUR = 60 * 60;
     public static final int TIME_DAY = TIME_HOUR * 24;
     private static final int MAX_SIZE = 1000 * 1000 * 50; // 50 mb
     private static final int MAX_COUNT = Integer.MAX_VALUE; // 不限制存放数据的数量
@@ -162,7 +162,7 @@ public class ACache {
      * @param key
      * @return String 数据
      */
-    public String getAsString(String key) {
+    private String getAsString(String key) {
         File file = mCache.get(key);
         if (!file.exists())
             return null;
@@ -426,7 +426,7 @@ public class ACache {
      * @param saveTime
      *            保存的时间，单位：秒
      */
-    public void put(String key, Serializable value, int saveTime) {
+    private void put(String key, Serializable value, int saveTime) {
         ByteArrayOutputStream baos = null;
         ObjectOutputStream oos = null;
         try {
@@ -498,7 +498,7 @@ public class ACache {
      * @param value
      *            保存的bitmap数据
      */
-    public void put(String key, Bitmap value) {
+    private void put(String key, Bitmap value) {
         put(key, Utils.Bitmap2Bytes(value));
     }
 
@@ -512,7 +512,7 @@ public class ACache {
      * @param saveTime
      *            保存的时间，单位：秒
      */
-    public void put(String key, Bitmap value, int saveTime) {
+    private void put(String key, Bitmap value, int saveTime) {
         put(key, Utils.Bitmap2Bytes(value), saveTime);
     }
 
@@ -590,7 +590,7 @@ public class ACache {
      * @param key
      * @return 是否移除成功
      */
-    public boolean remove(String key) {
+    private boolean remove(String key) {
         return mCache.remove(key);
     }
 
